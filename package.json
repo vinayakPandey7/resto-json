@@ -1,0 +1,23 @@
+{
+  "name": "resto-json",
+  "version": "1.0.0",
+  "description": "create a fake json data for testing app in frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinayakPandey7/resto-json.git"
+  },
+  "keywords": [
+    "fake",
+    "json"
+  ],
+  "author": "vinayakpandey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vinayakPandey7/resto-json/issues"
+  },
+  "homepage": "https://github.com/vinayakPandey7/resto-json#readme"
+}

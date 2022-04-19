@@ -1,6 +1,6 @@
 {
   "name": "resto-json",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "create a fake json data for testing app in frontend",
   "main": "index.js",
   "scripts": {

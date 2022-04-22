@@ -13,13 +13,13 @@
   "keywords": [
     "fake",
     "json",
-    resto,
-    fakedata,
-    users,
-    generate,
-    massive,
-    data,
-    nodejs
+    "resto",
+    "fakedata",
+    "users",
+    "generate",
+    "massive",
+    "data",
+    "nodejs"
   ],
   "author": "vinayakpandey",
   "license": "ISC",

@@ -12,7 +12,14 @@
   },
   "keywords": [
     "fake",
-    "json"
+    "json",
+    resto,
+    fakedata,
+    users,
+    generate,
+    massive,
+    data
+    nodejs
   ],
   "author": "vinayakpandey",
   "license": "ISC",

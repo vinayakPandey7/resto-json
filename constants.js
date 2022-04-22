@@ -1,15 +1,6 @@
-function getRndInteger(min, max) {
-  
-  return Math.floor(Math.random() * (max - min)) + min;
-}
+function getRndInteger(min, max) {return Math.floor(Math.random() * (max - min)) + min;}
 
 function userDetails(noOfItems) {
-  // var ObjectID = require('mongodb').ObjectID;
-
-
-
-
-  
   let firstNameDir = ["Adam", "Alex", "Aaron", "Ben", "Carl", "Dan", "David", "Edward", "Fred", "Frank", "George", "Hal", "Hank", "Ike", "John", "Jack", "Joe", "Larry", "Monte", "Matthew", "Mark", "Nathan", "Otto", "Paul", "Peter", "Roger", "Roger", "Steve", "Thomas", "Tim", "Ty", "Victor", "Walter" ]
   let lastNameDir = ["Anderson", "Ashwoon", "Aikin", "Bateman", "Bongard", "Bowers", "Boyd", "Cannon", "Cast", "Deitz", "Dewalt", "Ebner", "Frick", "Hancock", "Haworth", "Hesch", "Hoffman", "Kassing", "Knutson", "Lawless", "Lawicki", "Mccord", "McCormack", "Miller", "Myers", "Nugent", "Ortiz", "Orwig", "Ory", "Paiser", "Pak", "Pettigrew", "Quinn", "Quizoz", "Ramachandran", "Resnick", "Sagar", "Schickowski", "Schiebel", "Sellon", "Severson", "Shaffer", "Solberg", "Soloman", "Sonderling", "Soukup", "Soulis", "Stahl", "Sweeney", "Tandy", "Trebil", "Trusela", "Trussel", "Turco", "Uddin", "Uflan", "Ulrich", "Upson", "Vader", "Vail", "Valente", "Van Zandt", "Vanderpoel", "Ventotla", "Vogal", "Wagle", "Wagner", "Wakefield", "Weinstein", "Weiss", "Woo", "Yang", "Yates", "Yocum", "Zeaser", "Zeller", "Ziegler", "Bauer", "Baxster", "Casal", "Cataldi", "Caswell", "Celedon", "Chambers", "Chapman", "Christensen", "Darnell", "Davidson", "Davis", "DeLorenzo", "Dinkins", "Doran", "Dugelman", "Dugan", "Duffman", "Eastman", "Ferro", "Ferry", "Fletcher", "Fietzer", "Hylan", "Hydinger", "Illingsworth", "Ingram", "Irwin", "Jagtap", "Jenson", "Johnson", "Johnsen", "Jones", "Jurgenson", "Kalleg", "Kaskel", "Keller", "Leisinger", "LePage", "Lewis", "Linde", "Lulloff", "Maki", "Martin", "McGinnis", "Mills", "Moody", "Moore", "Napier", "Nelson", "Norquist", "Nuttle", "Olson", "Ostrander", "Reamer", "Reardon", "Reyes", "Rice", "Ripka", "Roberts", "Rogers", "Root", "Sandstrom", "Sawyer", "Schlicht", "Schmitt", "Schwager", "Schutz", "Schuster", "Tapia", "Thompson", "Tiernan", "Tisler" ]
   let domainDir = [
@@ -48,9 +39,9 @@ function userDetails(noOfItems) {
     'odnoklassniki.ru',       'oakley.com',        'techcrunch.com',
     'newsvine.com'
   ]
-
-
-  let resData = [];
+  let bloddGroupDir = ['A-positive','A-negative','B-positive','B-negative','AB-positive','AB-negative','O-positive','O-negative']
+  
+  let resData = {'users': []};
   const timestamp = Math.floor(new Date().getTime() / 1000).toString(16);
   for(let i=0;i<noOfItems;i++){
     let r1 = getRndInteger(0,33)
@@ -58,21 +49,29 @@ function userDetails(noOfItems) {
     let r3 = getRndInteger(0,100)
     let r4 = getRndInteger(0,4)
     let r6 = getRndInteger(3000,90000)
-    let first_name = firstNameDir[r1]   // o(1)
-    let last_name = lastNameDir[r2]   // o(1)
-    let email = first_name+last_name.substring(0,r4)+r6+'@'+domainDir[r3]    // o(n)
-    
+    let r7 = getRndInteger(9111111111,9999999999)
+    let r8 = getRndInteger(1959,2022)
+    let r9 = getRndInteger(1,28)
+    let r10 = getRndInteger(1,12)
+    let r11 = getRndInteger(0,7)
+    let r12 = getRndInteger(150,240)
     const objectId = timestamp + 'xxxxxxxxxxxxxxxx'.replace(/[x]/g, () => {
         return Math.floor(Math.random() * 16).toString(16);
     }).toLowerCase();
-
-    resData.push({
-      id: objectId,
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
+    
+    resData['users'].push({
+      _id: objectId,
+      firstName: firstNameDir[r1],   // o(1)
+      lastName: lastNameDir[r2],   // o(1)  
+      domain:domainDir[r3],  
+      email: firstNameDir[r1]+lastNameDir[r2].substring(0,r4)+r6+'@'+domainDir[r3],    // o(n)  
       age:r3,
-      gender:"male"
+      gender:"male",
+      phone: `+91 ${r7}`,
+      birthDate: `${r8}-${r10}-${r9}`,    // YYYY-MM-DD
+      bloodGroup: bloddGroupDir[r11],
+      height:r12,
+      weight: r3
     })
   }
   return resData;
@@ -81,3 +80,4 @@ function userDetails(noOfItems) {
 module.exports = {
   userDetails
 }
+
